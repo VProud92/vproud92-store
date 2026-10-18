@@ -1,0 +1,341 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VProud92 - Contact Us</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-container img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+        }
+        .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eaeaea;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #111;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 15px;
+        }
+        .contact-info-box {
+            background: #fdfdfd;
+            border: 1px solid #eaeaea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .contact-info-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .contact-info-box p {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .contact-info-box a {
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .btn-container {
+            display: flex;
+            gap: 15px;
+        }
+        .submit-btn {
+            flex: 1;
+            border: none;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+        }
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        .whatsapp-btn:hover {
+            background: #1ebe5d;
+        }
+        .email-btn {
+            background: #007bff;
+        }
+        .email-btn:hover {
+            background: #0056b3;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 600;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
+        }
+        .footer-section p, .footer-section a {
+            color: #bbb;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="https://lh3.googleusercontent.com/d/11D0CLPC0k7yDy16Kq1TVbqP0pDK1Ien7" alt="VProud92 Logo">
+            <span class="brand-name">VProud92</span>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        <h1>Contact Us</h1>
+        <p>Have questions about our products, sizing, or orders? Reach out to us directly or send us an inquiry through WhatsApp or Email below:</p>
+
+        <div class="contact-info-box">
+            <h3>Direct Contact Info</h3>
+            <p>📱 <strong>WhatsApp Support:</strong> <a href="https://wa.me/923042118440" target="_blank" style="color: #25D366;">03042118440</a></p>
+            <p>📧 <strong>Email Address:</strong> <a href="mailto:vproud92@gmail.com" style="color: #007bff;">vproud92@gmail.com</a></p>
+        </div>
+
+        <!-- Contact Form -->
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="contactPhone">Phone Number / WhatsApp</label>
+                <input type="tel" id="contactPhone" required placeholder="e.g. 03001234567">
+            </div>
+
+            <div class="form-group">
+                <label for="contactMsg">Your Message / Inquiry</label>
+                <textarea id="contactMsg" rows="4" required placeholder="Write your inquiry or message here..."></textarea>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" onclick="sendViaWhatsApp()" class="submit-btn whatsapp-btn">
+                    <span>💬</span> Send via WhatsApp
+                </button>
+                <button type="button" onclick="sendViaEmail()" class="submit-btn email-btn">
+                    <span>📧</span> Send via Email
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About VProud92</h3>
+                <p>Your ultimate destination for premium quality garments, trendy t-shirts, and stylish trousers designed for modern everyday wear.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📱 WhatsApp: <a href="https://wa.me/923042118440" target="_blank" style="color: #25D366; display: inline;">03042118440</a></p>
+                <p>📧 Email: <a href="mailto:vproud92@gmail.com" style="color: #4da6ff; display: inline;">vproud92@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 VProud92. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923042118440?text=Hi%20VProud92,%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" style="
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        z-index: 9999;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1.0)'">
+        💬
+        <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">WhatsApp</span>
+    </a>
+
+    <script>
+        function sendViaWhatsApp() {
+            let name = document.getElementById('contactName').value.trim();
+            let phone = document.getElementById('contactPhone').value.trim();
+            let messageText = document.getElementById('contactMsg').value.trim();
+
+            if (!name || !phone || !messageText) {
+                alert('Please fill in all the fields before sending.');
+                return;
+            }
+
+            let fullMessage = `*Customer Inquiry - VProud92*\n\n` +
+                              `👤 *Name:* ${name}\n` +
+                              `📞 *Phone:* ${phone}\n` +
+                              `💬 *Message:* ${messageText}`;
+
+            let encodedMessage = encodeURIComponent(fullMessage);
+            window.open(`https://wa.me/923042118440?text=${encodedMessage}`, '_blank');
+        }
+
+        function sendViaEmail() {
+            let name = document.getElementById('contactName').value.trim();
+            let phone = document.getElementById('contactPhone').value.trim();
+            let messageText = document.getElementById('contactMsg').value.trim();
+
+            if (!name || !phone || !messageText) {
+                alert('Please fill in all the fields before sending.');
+                return;
+            }
+
+            let subject = encodeURIComponent(`Customer Inquiry from ${name} - VProud92`);
+            let body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\n\nMessage:\n${messageText}`);
+            
+            window.location.href = `mailto:vproud92@gmail.com?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>

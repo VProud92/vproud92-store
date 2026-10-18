@@ -1,0 +1,310 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VProud92 - Checkout & Cart</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        /* Sticky Glass Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+        .logo img {
+            height: 42px;
+            vertical-align: middle;
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eaeaea;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #111;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .cart-product {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-product img {
+            width: 120px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #eee;
+        }
+        .cart-details h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #222;
+        }
+        .cart-details p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .cart-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #b12704;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .order-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .order-btn:disabled {
+            background: #cccccc !important;
+            cursor: not-allowed;
+        }
+        .order-btn:not(:disabled):hover {
+            background: #1ebe5d;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: #fff;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://lh3.googleusercontent.com/d/11D0CLPC0k7yDy16Kq1TVbqP0pDK1Ien7" alt="VProud92 Logo">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Continue Shopping</a>
+        <h1>Complete Your Order</h1>
+
+        <!-- Selected Product Display -->
+        <div class="cart-product" id="productDisplay">
+            <!-- JavaScript will load product info here -->
+        </div>
+
+        <!-- Checkout Form -->
+        <form onsubmit="sendToWhatsApp(event)">
+            
+            <!-- Size Selection -->
+            <div class="form-group">
+                <label for="sizeSelect">Select Size</label>
+                <select id="sizeSelect" required onchange="checkForm()">
+                    <option value="" disabled selected>Choose your size</option>
+                    <option value="Small (S)">Small (S)</option>
+                    <option value="Medium (M)">Medium (M)</option>
+                    <option value="Large (L)">Large (L)</option>
+                    <option value="Extra Large (XL)">Extra Large (XL)</option>
+                </select>
+            </div>
+
+            <!-- Color Selection -->
+            <div class="form-group">
+                <label for="colorSelect">Select Color</label>
+                <select id="colorSelect" required onchange="checkForm()">
+                    <option value="" disabled selected>Choose your color</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Navy Blue">Navy Blue</option>
+                    <option value="Grey">Grey</option>
+                    <option value="Charcoal">Charcoal</option>
+                    <option value="Khaki">Khaki</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="custName">Full Name</label>
+                <input type="text" id="custName" required placeholder="Enter your full name" onkeyup="checkForm()" oninput="checkForm()">
+            </div>
+
+            <div class="form-group">
+                <label for="custPhone">Phone Number / WhatsApp</label>
+                <input type="tel" id="custPhone" required placeholder="e.g. 03001234567" onkeyup="checkForm()" oninput="checkForm()">
+            </div>
+
+            <div class="form-group">
+                <label for="custAddress">Delivery Address</label>
+                <textarea id="custAddress" rows="3" required placeholder="Enter your complete delivery address (House, Street, City)" onkeyup="checkForm()" oninput="checkForm()"></textarea>
+            </div>
+
+            <!-- Submit Button (Initially Disabled) -->
+            <button type="submit" id="submitBtn" class="order-btn" disabled>
+                <span>💬</span> Confirm & Send Order via WhatsApp
+            </button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 VProud92. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Load product data from localStorage
+        let productData = JSON.parse(localStorage.getItem('selectedProduct'));
+        let productDisplay = document.getElementById('productDisplay');
+
+        if (productData) {
+            productDisplay.innerHTML = `
+                <img src="${productData.image}" alt="${productData.name}">
+                <div class="cart-details">
+                    <h3>${productData.name}</h3>
+                    <p>${productData.description}</p>
+                    <span class="cart-price">Rs. ${productData.price.toLocaleString()}</span>
+                </div>
+            `;
+        } else {
+            productDisplay.innerHTML = `<p>No product selected. Please go back to <a href="index.html">Home</a> and select a product.</p>`;
+        }
+
+        // Function to check if all fields are filled
+        function checkForm() {
+            let size = document.getElementById('sizeSelect').value;
+            let color = document.getElementById('colorSelect').value;
+            let name = document.getElementById('custName').value.trim();
+            let phone = document.getElementById('custPhone').value.trim();
+            let address = document.getElementById('custAddress').value.trim();
+            let submitBtn = document.getElementById('submitBtn');
+
+            if (size !== "" && color !== "" && name !== "" && phone !== "" && address !== "") {
+                submitBtn.removeAttribute('disabled');
+            } else {
+                submitBtn.setAttribute('disabled', 'true');
+            }
+        }
+
+        // آپ کا گوگل اسکرپٹ کا /exec لنک
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyFevbVECjk5EBMb6a1_a9DAfC55h28nZ0zmIVy2CdGozv9_P8bSl74UZqp-G2u1wD7/exec';
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            let size = document.getElementById('sizeSelect').value;
+            let color = document.getElementById('colorSelect').value;
+            let name = document.getElementById('custName').value.trim();
+            let phone = document.getElementById('custPhone').value.trim();
+            let address = document.getElementById('custAddress').value.trim();
+
+            let prodName = productData ? productData.name : "Custom Order";
+            let prodPrice = productData ? `Rs. ${productData.price.toLocaleString()}` : "N/A";
+
+            // ۱۔ ڈیٹا گوگل شیٹ کو بھیجیں
+            let orderData = {
+                "name": name,
+                "phone": phone,
+                "address": address,
+                "product": prodName,
+                "size": size,
+                "color": color,
+                "price": prodPrice
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData)
+            }).catch(error => console.error('Error!', error.message));
+
+            // ۲۔ واٹس ایپ پر آرڈر کا پیغام کھولیں
+            let message = `*New Order - VProud92*\n\n` +
+                          `🛍️ *Product:* ${prodName}\n` +
+                          `📏 *Size:* ${size}\n` +
+                          `🎨 *Color:* ${color}\n` +
+                          `💰 *Price:* ${prodPrice}\n\n` +
+                          `👤 *Customer Name:* ${name}\n` +
+                          `📞 *Phone:* ${phone}\n` +
+                          `📍 *Address:* ${address}\n\n` +
+                          `Payment Method: Cash on Delivery (COD)`;
+
+            let encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/923042118440?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
