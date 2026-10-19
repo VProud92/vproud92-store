@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
             background-color: #f9f9f9;
             color: #333;
         }
-        /* Sticky Glass Header */
+        /* گلاس ہیڈر */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -61,6 +61,7 @@
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
+        /* پروڈکٹ ڈسپلے سیکشن (تصویر اور تفصیلات) */
         .cart-product {
             display: flex;
             gap: 20px;
@@ -165,15 +166,15 @@
         <a href="index.html" class="back-link">&larr; Continue Shopping</a>
         <h1>Complete Your Order</h1>
 
-        <!-- Selected Product Display -->
+        <!-- منتخب شدہ پروڈکٹ کی تصویر اور تفصیلات یہاں ظاہر ہوں گی -->
         <div class="cart-product" id="productDisplay">
-            <!-- JavaScript will load product info here -->
+            <!-- جاوا اسکرپٹ یہاں پروڈکٹ کا ڈیٹا لوڈ کرے گا -->
         </div>
 
-        <!-- Checkout Form -->
+        <!-- چیک آؤٹ فارم -->
         <form onsubmit="sendToWhatsApp(event)">
             
-            <!-- Size Selection -->
+            <!-- سائز کا انتخاب -->
             <div class="form-group">
                 <label for="sizeSelect">Select Size</label>
                 <select id="sizeSelect" required onchange="checkForm()">
@@ -185,7 +186,7 @@
                 </select>
             </div>
 
-            <!-- Color Selection -->
+            <!-- رنگ کا انتخاب -->
             <div class="form-group">
                 <label for="colorSelect">Select Color</label>
                 <select id="colorSelect" required onchange="checkForm()">
@@ -214,7 +215,7 @@
                 <textarea id="custAddress" rows="3" required placeholder="Enter your complete delivery address (House, Street, City)" onkeyup="checkForm()" oninput="checkForm()"></textarea>
             </div>
 
-            <!-- Submit Button (Initially Disabled) -->
+            <!-- آرڈر بٹن (شروع میں بند ہوگا جب تک تمام خانے نہ بھرے جائیں) -->
             <button type="submit" id="submitBtn" class="order-btn" disabled>
                 <span>💬</span> Confirm & Send Order via WhatsApp
             </button>
@@ -226,7 +227,7 @@
     </footer>
 
     <script>
-        // Load product data from localStorage
+        // لوکل اسٹوریج سے پروڈکٹ کا ڈیٹا لوڈ کرنا
         let productData = JSON.parse(localStorage.getItem('selectedProduct'));
         let productDisplay = document.getElementById('productDisplay');
 
@@ -235,7 +236,7 @@
                 <img src="${productData.image}" alt="${productData.name}">
                 <div class="cart-details">
                     <h3>${productData.name}</h3>
-                    <p>${productData.description}</p>
+                    <p>${productData.description || ''}</p>
                     <span class="cart-price">Rs. ${productData.price.toLocaleString()}</span>
                 </div>
             `;
@@ -243,7 +244,7 @@
             productDisplay.innerHTML = `<p>No product selected. Please go back to <a href="index.html">Home</a> and select a product.</p>`;
         }
 
-        // Function to check if all fields are filled
+        // فارم کے خانے چیک کرنے کا فنکشن تاکہ بٹن فعال ہو سکے
         function checkForm() {
             let size = document.getElementById('sizeSelect').value;
             let color = document.getElementById('colorSelect').value;
@@ -259,10 +260,10 @@
             }
         }
 
-        // آپ کا گوگل اسکرپٹ کا /exec لنک
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyFevbVECjk5EBMb6a1_a9DAfC55h28nZ0zmIVy2CdGozv9_P8bSl74UZqp-G2u1wD7/exec';
+        // آپ کا گوگل اسکرپٹ ویب ایپ لنک
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwewv-bbv2b4pHQ9uuQQy4TBQhakpRrK4i797DrtloltEsup_Te0khY1DAKOm3Wrwya/exec';
 
-function sendToWhatsApp(event) {
+        function sendToWhatsApp(event) {
             event.preventDefault();
             let size = document.getElementById('sizeSelect').value;
             let color = document.getElementById('colorSelect').value;
@@ -272,14 +273,19 @@ function sendToWhatsApp(event) {
 
             let prodName = productData ? productData.name : "Custom Order";
             let prodPrice = productData ? `Rs. ${productData.price.toLocaleString()}` : "N/A";
-            let prodImage = productData ? productData.image : "N/A"; // پروڈکٹ کی تصویر کا لنک
+            let prodImage = productData ? productData.image : "N/A";
+            // واٹس ایپ کھولنے کے بعد ہوم پیج پر ری ڈائریکٹ کرنے کے لیے
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 1000); // ایک سیکنڈ کا وقفہ تاکہ واٹس ایپ کھلنے کا موقع مل جائے
 
-            // ۱۔ ڈیٹا گوگل شیٹ کو بھیجیں (اس سے شیٹ پر کوئی فرق نہیں پڑے گا)
+            // ۱۔ گوگل شیٹ کو ڈیٹا بھیجنا (بشمول پروڈکٹ امیج لنک)
             let orderData = {
                 "name": name,
                 "phone": phone,
                 "address": address,
                 "product": prodName,
+                "image": prodImage,
                 "size": size,
                 "color": color,
                 "price": prodPrice
@@ -292,7 +298,7 @@ function sendToWhatsApp(event) {
                 body: JSON.stringify(orderData)
             }).catch(error => console.error('Error!', error.message));
 
-            // ۲۔ واٹس ایپ پر آرڈر کا پیغام (جس میں اب امیج لنک بھی شامل ہے)
+            // ۲۔ واٹس ایپ پر پیغام بھیجنا (بشمول امیج لنک)
             let message = `*New Order - VProud92*\n\n` +
                           `🛍️ *Product:* ${prodName}\n` +
                           `🖼️ *Image Link:* ${prodImage}\n` +
