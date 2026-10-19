@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,22 +13,23 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #f7f8fa;
+            color: #222;
             line-height: 1.6;
         }
+        /* Sticky Glass Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 50px;
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #eaeaea;
         }
         .logo-container {
             display: flex;
@@ -37,73 +38,101 @@
             text-decoration: none;
         }
         .logo-container img {
-            height: 42px;
+            height: 45px;
             width: auto;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .logo-container img:hover {
+            transform: scale(1.05);
         }
         .brand-name {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: #111;
+            letter-spacing: 0.5px;
         }
         nav a {
-            margin-left: 25px;
+            margin-left: 30px;
             text-decoration: none;
-            color: #444;
+            color: #555;
             font-weight: 600;
             font-size: 15px;
-            transition: color 0.3s;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #111;
+            transition: width 0.3s ease;
         }
         nav a:hover {
             color: #000;
         }
+        nav a:hover::after {
+            width: 100%;
+        }
         .container {
             max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid #eaeaea;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
         }
         h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #111;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            font-size: 34px;
+            margin-bottom: 25px;
+            color: #0f172a;
+            font-weight: 800;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 15px;
         }
         h2 {
-            font-size: 20px;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            color: #222;
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: #1e293b;
+            font-weight: 700;
         }
         p {
-            margin-bottom: 15px;
-            color: #555;
-            font-size: 15px;
+            margin-bottom: 18px;
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.8;
         }
         ul {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding-left: 20px;
-            color: #555;
+            color: #475569;
         }
         ul li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 15px;
         }
         .back-link {
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-decoration: none;
-            color: #007bff;
+            color: #2563eb;
             font-weight: 600;
+            transition: color 0.2s;
         }
+        .back-link:hover {
+            color: #1d4ed8;
+        }
+        /* Footer Section */
         footer {
-            background: #222;
+            background: #0f172a;
             color: #fff;
-            padding: 40px 20px 20px;
-            margin-top: 60px;
+            padding: 50px 20px 20px;
+            margin-top: 80px;
         }
         .footer-content {
             max-width: 1200px;
@@ -111,8 +140,8 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         .footer-section {
             flex: 1;
@@ -121,27 +150,50 @@
         .footer-section h3 {
             font-size: 18px;
             margin-bottom: 15px;
-            color: #fff;
-            border-bottom: 1px solid #444;
+            color: #ffffff;
+            border-bottom: 2px solid #334155;
             padding-bottom: 8px;
+            font-weight: 700;
         }
         .footer-section p, .footer-section a {
-            color: #bbb;
+            color: #94a3b8;
             font-size: 14px;
             text-decoration: none;
             display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
         .footer-section a:hover {
-            color: #fff;
+            color: #ffffff;
         }
         .footer-bottom {
             text-align: center;
-            border-top: 1px solid #444;
-            padding-top: 20px;
+            border-top: 1px solid #334155;
+            padding-top: 25px;
             font-size: 13px;
-            color: #aaa;
+            color: #64748b;
+        }
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -154,7 +206,7 @@
         </a>
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
+            <a href="about.html" style="color: #000;">About Us</a>
             <a href="contact.html">Contact Us</a>
         </nav>
     </header>
@@ -196,7 +248,7 @@
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <p>📱 WhatsApp: <a href="https://wa.me/923042118440" target="_blank" style="color: #25D366; display: inline;">03042118440</a></p>
-                <p>📧 Email: <a href="mailto:vproud92@gmail.com" style="color: #4da6ff; display: inline;">vproud92@gmail.com</a></p>
+                <p>📧 Email: <a href="mailto:vproud92@gmail.com" style="color: #60a5fa; display: inline;">vproud92@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -205,26 +257,8 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/923042118440?text=Hi%20VProud92,%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" style="
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        background-color: #25D366;
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 32px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        z-index: 9999;
-        text-decoration: none;
-        transition: transform 0.3s ease;
-    " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1.0)'">
+    <a href="https://wa.me/923042118440?text=Hi%20VProud92,%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" class="whatsapp-float">
         💬
-        <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">WhatsApp</span>
     </a>
 
 </body>
