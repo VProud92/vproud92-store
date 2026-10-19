@@ -1,4 +1,84 @@
-/* Hero Slider Section - Clear & Crisp */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VProud92 - Premium Garments</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f7f8fa;
+            color: #222;
+        }
+        /* Sticky Glass Header */
+        header {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-container img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+        .brand-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #111;
+            letter-spacing: 0.5px;
+        }
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #111;
+            transition: width 0.3s ease;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Slider Section */
+     /* Hero Slider Section - Clear & Crisp */
         .hero-slider {
             position: relative;
             width: 100%;
@@ -54,3 +134,635 @@
             line-height: 1.6;
             text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
+
+        .product-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .product-section h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 12px;
+            color: #1e293b;
+            font-weight: 700;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #edf2f7;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+        .image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1e293b;
+            font-weight: 700;
+        }
+        .product-info p {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-size: 19px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .product-card button {
+            background: #0f172a;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .product-card button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+        /* Footer Section */
+        footer {
+            background: #0f172a;
+            color: #fff;
+            padding: 50px 20px 20px;
+            margin-top: 80px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ffffff;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+        .footer-section p, .footer-section a {
+            color: #94a3b8;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-section a:hover {
+            color: #ffffff;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #334155;
+            padding-top: 25px;
+            font-size: 13px;
+            color: #64748b;
+        }
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="https://lh3.googleusercontent.com/d/11D0CLPC0k7yDy16Kq1TVbqP0pDK1Ien7" alt="VProud92 Logo">
+            <span class="brand-name">VProud92</span>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Trending Collection Hero Slider -->
+    <!-- Trending Collection Hero Slider (Alternating T-Shirt and Pants) -->
+    <div class="hero-slider" id="home">
+        <!-- 1. T-Shirt -->
+        <div class="slide active" style="background-image: url('https://lh3.googleusercontent.com/d/1DbhuBbOuHgGRzwZyY_3rbbF_wTPZcSLx');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Trending Collection</h1>
+                <p>Explore our premium quality classic cotton t-shirts tailored for everyday comfort and style.</p>
+            </div>
+        </div>
+        <!-- 2. Pants -->
+        <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/d/1WodERBaC-8i5tyxTITrXfhGPURRJA9mk');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Modern Casual Chinos</h1>
+                <p>Smart casual cotton trousers designed for a sleek and professional look in both office and leisure.</p>
+            </div>
+        </div>
+        <!-- 3. T-Shirt -->
+        <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/d/1oMuDJBkjfWGD3uDDGuL7RpkOP6MCL5W3');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Modern Fit Graphic Tee</h1>
+                <p>Stylish contemporary cut featuring durable print and stretch-resistant modern styling.</p>
+            </div>
+        </div>
+        <!-- 4. Pants -->
+        <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/d/1kWTJIJHqNxJ5G5Rh-KZsHTxCFO3udOjf');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Urban Utility Cargo Pants</h1>
+                <p>Rugged multi-pocket design combining high street utility style with rugged comfort.</p>
+            </div>
+        </div>
+    </div>
+    <!-- T-Shirts Section -->
+    <section id="tshirts" class="product-section">
+        <h2>Our T-Shirts Collection</h2>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1DbhuBbOuHgGRzwZyY_3rbbF_wTPZcSLx" alt="Classic Cotton T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Classic Cotton T-Shirt</h3>
+                        <p>Premium soft cotton fabric engineered for breathable comfort and everyday casual style.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,499</span>
+                        </div>
+                        <button onclick="buyNow('Classic Cotton T-Shirt', 1499, 'https://lh3.googleusercontent.com/d/1DbhuBbOuHgGRzwZyY_3rbbF_wTPZcSLx', 'Premium soft cotton fabric engineered for breathable comfort and everyday casual style.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1oMuDJBkjfWGD3uDDGuL7RpkOP6MCL5W3" alt="Modern Fit Graphic Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Modern Fit Graphic Tee</h3>
+                        <p>Stylish contemporary cut featuring durable print and stretch-resistant modern styling.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,699</span>
+                        </div>
+                        <button onclick="buyNow('Modern Fit Graphic Tee', 1699, 'https://lh3.googleusercontent.com/d/1oMuDJBkjfWGD3uDDGuL7RpkOP6MCL5W3', 'Stylish contemporary cut featuring durable print and stretch-resistant modern styling.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1zDeZEXcCJQrzFDEEMuOzDCrVdef_RD2G" alt="Casual Urban T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Casual Urban T-Shirt</h3>
+                        <p>Designed for active streetwear vibes, offering maximum durability and effortless cool.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,599</span>
+                        </div>
+                        <button onclick="buyNow('Casual Urban T-Shirt', 1599, 'https://lh3.googleusercontent.com/d/1zDeZEXcCJQrzFDEEMuOzDCrVdef_RD2G', 'Designed for active streetwear vibes, offering maximum durability and effortless cool.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1L0y2V7Tfyny0TuDJ2xLofA-XiYQlqNGg" alt="Minimalist Crew Neck Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Minimalist Crew Neck Tee</h3>
+                        <p>Sleek minimal design crafted with lightweight fabric for an exceptional daily fit.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,399</span>
+                        </div>
+                        <button onclick="buyNow('Minimalist Crew Neck Tee', 1399, 'https://lh3.googleusercontent.com/d/1L0y2V7Tfyny0TuDJ2xLofA-XiYQlqNGg', 'Sleek minimal design crafted with lightweight fabric for an exceptional daily fit.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1A3pPgTs2Jj4NbY9djBEaZI4nXmiaImEy" alt="Vibrant Summer T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Vibrant Summer T-Shirt</h3>
+                        <p>Light and breezy fabric tailored to keep you cool and fresh throughout warm days.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,499</span>
+                        </div>
+                        <button onclick="buyNow('Vibrant Summer T-Shirt', 1499, 'https://lh3.googleusercontent.com/d/1A3pPgTs2Jj4NbY9djBEaZI4nXmiaImEy', 'Light and breezy fabric tailored to keep you cool and fresh throughout warm days.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1NDayYGIN6demb4HtK8V6Yz9qqjjWwU3H" alt="Premium Lounge Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Premium Lounge Tee</h3>
+                        <p>Super-soft texture designed for maximum relaxation and effortless home or outdoor wear.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,699</span>
+                        </div>
+                        <button onclick="buyNow('Premium Lounge Tee', 1699, 'https://lh3.googleusercontent.com/d/1NDayYGIN6demb4HtK8V6Yz9qqjjWwU3H', 'Super-soft texture designed for maximum relaxation and effortless home or outdoor wear.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1N2OFGJFjc7-ozJWuktQQgEtsfTtSHKUt" alt="Active Sport Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Active Sport Tee</h3>
+                        <p>Moisture-wicking athletic fit built for workouts, running, and active daily routines.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,799</span>
+                        </div>
+                        <button onclick="buyNow('Active Sport Tee', 1799, 'https://lh3.googleusercontent.com/d/1N2OFGJFjc7-ozJWuktQQgEtsfTtSHKUt', 'Moisture-wicking athletic fit built for workouts, running, and active daily routines.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/13zBa_pcN-kPeWKvhHpxjDFheULBqQn9I" alt="Classic Black Statement Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Classic Black Statement Tee</h3>
+                        <p>Timeless dark shade built with fade-resistant dye and a sharp, tailored silhouette.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 1,599</span>
+                        </div>
+                        <button onclick="buyNow('Classic Black Statement Tee', 1599, 'https://lh3.googleusercontent.com/d/13zBa_pcN-kPeWKvhHpxjDFheULBqQn9I', 'Timeless dark shade built with fade-resistant dye and a sharp, tailored silhouette.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pants Section -->
+    <section id="pants" class="product-section">
+        <h2>Our Pants Collection</h2>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1WodERBaC-8i5tyxTITrXfhGPURRJA9mk" alt="Modern Casual Chinos">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Modern Casual Chinos</h3>
+                        <p>Smart casual cotton trousers tailored for a sleek look in both office and leisure settings.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,799</span>
+                        </div>
+                        <button onclick="buyNow('Modern Casual Chinos', 2799, 'https://lh3.googleusercontent.com/d/1WodERBaC-8i5tyxTITrXfhGPURRJA9mk', 'Smart casual cotton trousers tailored for a sleek look in both office and leisure settings.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1kWTJIJHqNxJ5G5Rh-KZsHTxCFO3udOjf" alt="Urban Utility Cargo Pants">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Urban Utility Cargo Pants</h3>
+                        <p>Rugged multi-pocket design combining high street utility style with rugged comfort.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,999</span>
+                        </div>
+                        <button onclick="buyNow('Urban Utility Cargo Pants', 2999, 'https://lh3.googleusercontent.com/d/1kWTJIJHqNxJ5G5Rh-KZsHTxCFO3udOjf', 'Rugged multi-pocket design combining high street utility style with rugged comfort.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1jPa4NeK4F2Rw7q2KGH09DiauzYSH5Pym" alt="Slim Fit Formal Trousers">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Slim Fit Formal Trousers</h3>
+                        <p>Sharply tailored formal trousers designed to give a crisp, professional executive edge.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 3,199</span>
+                        </div>
+                        <button onclick="buyNow('Slim Fit Formal Trousers', 3199, 'https://lh3.googleusercontent.com/d/1jPa4NeK4F2Rw7q2KGH09DiauzYSH5Pym', 'Sharply tailored formal trousers designed to give a crisp, professional executive edge.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1HwUAqTGTLakSPJuViQHHj1Kkdhm_-ztP" alt="Relaxed Fit Trouser">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Relaxed Fit Trouser</h3>
+                        <p>Loose and comfortable everyday casual trousers built for ultimate ease of movement.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,299</span>
+                        </div>
+                        <button onclick="buyNow('Relaxed Fit Trouser', 2299, 'https://lh3.googleusercontent.com/d/1HwUAqTGTLakSPJuViQHHj1Kkdhm_-ztP', 'Loose and comfortable everyday casual trousers built for ultimate ease of movement.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/19H7TOK167Jssce6xe3GG59vOEv7G_2DH" alt="Streetwear Jogger Pants">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Streetwear Jogger Pants</h3>
+                        <p>Trendy tapered fit with elastic cuffs, combining sporty aesthetics with lounging comfort.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,499</span>
+                        </div>
+                        <button onclick="buyNow('Streetwear Jogger Pants', 2499, 'https://lh3.googleusercontent.com/d/19H7TOK167Jssce6xe3GG59vOEv7G_2DH', 'Trendy tapered fit with elastic cuffs, combining sporty aesthetics with lounging comfort.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1M8G6ET6WpydE6zcQ5MKbwR4kW2tqhLQ9" alt="Premium Tailored Chinos">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Premium Tailored Chinos</h3>
+                        <p>Fine-weave cotton trousers offering a sophisticated look and soft touch finish.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,899</span>
+                        </div>
+                        <button onclick="buyNow('Premium Tailored Chinos', 2899, 'https://lh3.googleusercontent.com/d/1M8G6ET6WpydE6zcQ5MKbwR4kW2tqhLQ9', 'Fine-weave cotton trousers offering a sophisticated look and soft touch finish.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1Zh0seDn1zgnle77Z6mcsEqNydlvRYEWy" alt="Classic Khaki Trousers">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Classic Khaki Trousers</h3>
+                        <p>Versatile neutral-tone trousers that easily match any shirt for a smart look.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,699</span>
+                        </div>
+                        <button onclick="buyNow('Classic Khaki Trousers', 2699, 'https://lh3.googleusercontent.com/d/1Zh0seDn1zgnle77Z6mcsEqNydlvRYEWy', 'Versatile neutral-tone trousers that easily match any shirt for a smart look.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1B66wHxBhHLIicIZWAnrK_dEJ1FCcbfSb" alt="Heavy-Duty Worker Pants">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Heavy-Duty Worker Pants</h3>
+                        <p>Tough stitching and durable fabric built for rugged tasks and long-lasting wear.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 3,099</span>
+                        </div>
+                        <button onclick="buyNow('Heavy-Duty Worker Pants', 3099, 'https://lh3.googleusercontent.com/d/1B66wHxBhHLIicIZWAnrK_dEJ1FCcbfSb', 'Tough stitching and durable fabric built for rugged tasks and long-lasting wear.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/10pqWISx71RtqFHu1bxkvJQvd9Iy1s3Sy" alt="Slim Fit Denim Jeans">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Slim Fit Denim Jeans</h3>
+                        <p>Modern silhouette denim with a clean wash, offering timeless style and durability.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,799</span>
+                        </div>
+                        <button onclick="buyNow('Slim Fit Denim Jeans', 2799, 'https://lh3.googleusercontent.com/d/10pqWISx71RtqFHu1bxkvJQvd9Iy1s3Sy', 'Modern silhouette denim with a clean wash, offering timeless style and durability.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/17xknW4soInz4fJTCOb1HntkfAt28lu3W" alt="Stretch Cotton Trousers">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Stretch Cotton Trousers</h3>
+                        <p>Lightweight stretch trousers designed to give you flexibility throughout your day.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 2,599</span>
+                        </div>
+                        <button onclick="buyNow('Stretch Cotton Trousers', 2599, 'https://lh3.googleusercontent.com/d/17xknW4soInz4fJTCOb1HntkfAt28lu3W', 'Lightweight stretch trousers designed to give you flexibility throughout your day.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/d/13TX-o7Gk2RLzC6uQf8HEJUuZBz9RU3BG" alt="Elite Designer Pants">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h3>Elite Designer Pants</h3>
+                        <p>Premium finish designer pants crafted for standout style and unmatched elegance.</p>
+                    </div>
+                    <div>
+                        <div class="price-row">
+                            <span class="price">Rs. 3,499</span>
+                        </div>
+                        <button onclick="buyNow('Elite Designer Pants', 3499, 'https://lh3.googleusercontent.com/d/13TX-o7Gk2RLzC6uQf8HEJUuZBz9RU3BG', 'Premium finish designer pants crafted for standout style and unmatched elegance.')">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About VProud92</h3>
+                <p>Your ultimate destination for premium quality garments, trendy t-shirts, and stylish trousers designed for modern everyday wear.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📱 WhatsApp: <a href="https://wa.me/923042118440" target="_blank" style="color: #25D366; display: inline;">03042118440</a></p>
+                <p>📧 Email: <a href="mailto:vproud92@gmail.com" style="color: #60a5fa; display: inline;">vproud92@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 VProud92. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923042118440?text=Hi%20VProud92,%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" class="whatsapp-float">
+        💬
+    </a>
+
+    <script>
+        // Hero Image Slider Script
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 4000); // Har 4 second baad image change hogi
+
+        // Buy Now Function
+        function buyNow(name, price, image, description) {
+            let product = {
+                name: name,
+                price: price,
+                image: image,
+                description: description
+            };
+            localStorage.setItem('selectedProduct', JSON.stringify(product));
+            window.location.href = 'cart.html';
+        }
+    </script>
+</body>
+</html>
